@@ -11,6 +11,19 @@ public:
 	virtual void draw() { std::cout << "draw shape" << std::endl; }
 
 	virtual ~Shape() {}
+
+
+	// 자신의 복사본을 만들수 있는 가상함수는 
+	// 아주 유용하게 사용됩니다.
+	virtual Shape* clone()
+	{
+		Shape* s = new Shape;
+		s->color = this->color; // 모든 멤버를 나와 동일하게설정
+
+		return s;
+
+//		return new Shape(*this); // 또는 복사 생성자로 생성
+	}
 };
 
 
@@ -18,17 +31,23 @@ public:
 class Rect : public Shape
 {
 public:
-	void draw() { std::cout << "draw rect" << std::endl; }
+	void draw() override  { std::cout << "draw rect" << std::endl; }
+
+	Shape* clone() override
+	{
+		return new Rect(*this);
+	}
 };
+
 class Circle : public Shape
 {
 public:
-	void draw() { std::cout << "draw circle" << std::endl; }
-};
-class Triangle : public Shape
-{
-public:
-	void draw() { std::cout << "draw triange" << std::endl; }
+	void draw() override { std::cout << "draw circle" << std::endl; }
+
+	Shape* clone() override
+	{
+		return new Circle(*this);
+	}
 };
 
 int main()
@@ -70,6 +89,11 @@ int main()
 				// Circle
 			}
 			*/
+
+			// k 번째 복사본을 만들어서 v에 추가하기
+			v.push_back( v[k]->clone() ); // 다형성
+							// k번째 도형이 어떤 도형인지 
+							// 알 필요없다.
 		}
 	}
 }
