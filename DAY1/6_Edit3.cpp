@@ -67,7 +67,14 @@ public:
 	{
 		return s.size() < limit && isdigit(c);
 	}
+
+	bool iscomplete(const std::string& s) override
+	{
+		return s.size() == limit;
+	}
 };
+
+
 int main()
 {
 	Edit e;
