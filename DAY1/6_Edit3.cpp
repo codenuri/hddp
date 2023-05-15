@@ -63,7 +63,7 @@ class LimitDigitValidator : public IValidator
 public:
 	LimitDigitValidator(int n) : limit(n) {}
 
-	bool validator(const std::string& s, char c) override
+	bool validate(const std::string& s, char c) override
 	{
 		return s.size() < limit && isdigit(c);
 	}
