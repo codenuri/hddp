@@ -23,6 +23,9 @@
 //       "모든 카메라는 아래 인터페이스를 구현해야 한다" 라고 표현
 //       "모든 카메라는 아래 프로토콜을 채택해야 한다" 라고 도 함(swift)
 
+//#define interface struct
+
+//interface ICamera
 //class ICamera
 struct ICamera
 {
