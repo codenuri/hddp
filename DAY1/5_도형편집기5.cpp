@@ -17,7 +17,7 @@
 // 핵심 8. 아래 리팩토링 용어 이해해 보세요
 // 
 // => "Replace Conditional With Polymorphism"
-
+//              (제어문)을        (가상함수로)
 
 
 class Shape
