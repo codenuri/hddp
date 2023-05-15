@@ -18,6 +18,13 @@ class Student : public People
 {
 	int id;
 public:
+	// 아래 처럼 하면 에러입니다. People 에 디폴트 생성자가 없습니다.
+//	Student(int id) : id(id) {} // Student(int id) : People(), id(id) {}
+
+
+	Student(const std::string& name, int age, int id)
+		: People(name, age), id(id) {}
+
 };
 
 int main()
