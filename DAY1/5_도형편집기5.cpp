@@ -57,6 +57,19 @@ int main()
 			// k번째 도형의 복사본을 만들어서 v에 추가..
 			// 그런데, k번째 도형이 뭘까요 ?
 			// 어떻게 코드를 만들어야 할까요 ?
+
+			/*
+			// 아래 코드는 OCP 를 만족할수 없는
+			// 좋지 않은 코드 입니다.
+			if (dynamic_cast<Rect*>(v[k]) != 0)
+			{
+				// v[k] 는 Rect이다 복사.. 
+			}
+			else if (dynamic_cast<Circle*>(v[k]) != 0)
+			{
+				// Circle
+			}
+			*/
 		}
 	}
 }
