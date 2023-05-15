@@ -31,7 +31,7 @@ class Edit
 	//------------------------------------------
 	IValidator* val = nullptr;
 public:
-	void setValidate(IValidator* p) { pval = p; }
+	void setValidate(IValidator* p) { val = p; }
 	//------------------------------------------
 
 	std::string getData()
@@ -41,7 +41,8 @@ public:
 		{
 			char c = _getch();
 
-			if (c == 13 && (val == nullptr || val->iscomplete(data))  ) break;
+			if (c == 13 && 
+				(val == nullptr || val->iscomplete(data))  ) break;
 
 			if (val == nullptr || val->validate(data, c) ) // 입력값의 유효성여부 판단을
 			{							// 다른 객체에 위임
@@ -54,9 +55,26 @@ public:
 		return data;
 	}
 };
+
+// 이제 다양한 종류의 Validator 만 제공하면 됩니다.
+class LimitDigitValidator : public IValidator
+{
+	int limit;
+public:
+	LimitDigitValidator(int n) : limit(n) {}
+
+	bool validator(const std::string& s, char c) override
+	{
+		return s.size() < limit && isdigit(c);
+	}
+};
 int main()
 {
 	Edit e;
+	LimitDigitValidator v(5);
+	e.setValidate(&v); // edit 입력 값의 유효성 여부
+						// 조사하는 정책을 담은 v전달
+
 	while (1)
 	{
 		std::cout << e.getData() << std::endl;
