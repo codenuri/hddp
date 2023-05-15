@@ -29,7 +29,7 @@ public:
 
 int main()
 {
-	Student s(? );
+	Student s( "kim", 20, 15);
 
 
 	People p1("kim", 20);
