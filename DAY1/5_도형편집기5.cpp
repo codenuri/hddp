@@ -1,6 +1,25 @@
 #include <iostream>
 #include <vector>
 
+// 핵심 6. 디자인패턴이란 ?
+// => 1994년 4명의 저자가 만든 책의 이름
+// 
+// => GOF's Design Pattern : Gangs Of four
+
+// => 자주 사용되는 코딩 스타일에 이름을 부여 한다.
+// => 23개의 이름
+
+// 핵심 7. prototype 패턴 : 견본객체를 만들고
+//						복사를 통해서 객체를 생성하는것
+//						clone()가상함수
+//						목요일날 보다 정확히 수업.
+
+// 핵심 8. 아래 리팩토링 용어 이해해 보세요
+// 
+// => "Replace Conditional With Polymorphism"
+
+
+
 class Shape
 {
 	int color;
