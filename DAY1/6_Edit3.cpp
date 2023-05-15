@@ -82,6 +82,9 @@ int main()
 	e.setValidate(&v); // edit 입력 값의 유효성 여부
 						// 조사하는 정책을 담은 v전달
 
+	LimitDigitValidator v2(15);
+	e.setValidate(&v2); // 동일 edit 가 정책을 변경
+
 	while (1)
 	{
 		std::cout << e.getData() << std::endl;

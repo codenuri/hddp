@@ -10,12 +10,11 @@ public:
 	std::string getData()
 	{
 		data.clear();
-
 		while (1)
 		{
 			char c = _getch();
 
-			if (c == 13) break;
+			if (c == 13) break; // enter
 
 			if (isdigit(c))
 			{

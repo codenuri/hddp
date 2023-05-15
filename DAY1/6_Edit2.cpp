@@ -47,6 +47,7 @@ public:
 		return isdigit(c);
 	}
 };
+
 int main()
 {
 //	Edit e;
