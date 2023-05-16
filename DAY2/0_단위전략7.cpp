@@ -18,8 +18,12 @@ public:
 		printf("deallocate : %p, %d cnts\n", p, sz);
 		free(p);
 	}
-};
 
+	using value_type = T;
+	debug_alloc() {}
+	
+	template<typename U> debug_alloc(const debug_alloc<U>&) {}
+};
 
 int main()
 {
