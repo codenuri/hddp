@@ -75,6 +75,8 @@ public:
 	void close() { std::cout << "Dialog close" << std::endl; }
 };
 // 방법 1. command() 에서 원하는 기능을 작성
+// => 모든 종류의 메뉴가 동일한 일을 수행하게 된다.
+// => 잘못된 코드..!!
 class MenuItem : public BaseMenu
 {
 	int id;
