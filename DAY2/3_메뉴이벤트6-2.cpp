@@ -159,7 +159,21 @@ int main()
 //	m1.set_command(new DialogCloseCommand(&dlg));
 
 	m1.set_command(cmd(&Dialog::close, &dlg));
-	m2.set_command(cmd(&foo));
+//	m2.set_command(cmd(&foo));
 	
 	m1.command();
+}
+
+// 참고
+void foo()
+{
+	void(*f1)() = &foo;
+	void(Dialog::*f2)() = &Dialog::close;
+
+	f1(); // ok
+//	f2(); // error. 객체 필요
+
+	Dialog dlg;
+	(dlg.*f2)(); // ok.. pointer to member 라는 연산자
+				//     .* 연산자
 }
