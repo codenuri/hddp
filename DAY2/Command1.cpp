@@ -129,5 +129,22 @@ int main()
 			command->execute();
 			cmd_stack.push(command);
 		}
+
+		else if (cmd == 0)
+		{
+			if (!cmd_stack.empty())
+			{
+				command = cmd_stack.top();
+
+				cmd_stack.pop();
+
+				if (command->can_undo())
+				{
+					command->undo();
+				}
+				delete command; // redo 도 지원하려면 지우지 말고
+								// redo_stack.push(command)
+			}
+		}
 	}
 }
