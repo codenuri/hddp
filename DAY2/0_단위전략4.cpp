@@ -1,7 +1,15 @@
 // 방법 3. 정책 클래스를 인터페이스가 아닌
 //        템플릿 인자로 교체
 
-template<typename T, typename ThreadModel> class List
+// => 단위 전략(policy base design) 
+
+// 장점 : 가상함수가 아닌 인라인 함수.. 빠르다.
+// 단점 : 실행시간 정책 교체 안됨
+
+// 정책 클래스가 가져야 하는 조건은 "인터페이스" 가 아닌
+// "문서화"로 약속되어야 한다.
+
+template<typename T, typename ThreadModel = nolock> class List
 {
 	ThreadModel tm;
 public:
