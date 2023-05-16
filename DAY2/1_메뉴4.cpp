@@ -15,16 +15,12 @@ public:
 };
 
 
-
-
-class MenuItem
+class MenuItem : public BaseMenu
 {
-
 	int id;
 public:
 	MenuItem(const std::string& title, int id)
-		: title(title), id(id) {}
-
+		: BaseMenu(title), id(id) {}
 
 
 	void command()
@@ -36,14 +32,15 @@ public:
 	}
 };
 
-class PopupMenu
+class PopupMenu : public BaseMenu
 {
-	std::string title;
-	std::vector<MenuItem*> v;
+	std::vector<BaseMenu*> v; // ÇÙ½É
 public:
-	PopupMenu(const std::string& title) : title(title) {}
+	PopupMenu(const std::string& title) : BaseMenu(title) {}
 
-	void add_menu(MenuItem* m) { v.push_back(m); }
+	void add_menu(BaseMenu* m) { v.push_back(m); }
+
+
 
 	void command()
 	{
