@@ -12,6 +12,8 @@ public:
 	virtual ~BaseMenu() {}
 
 	std::string get_title() { return title; }
+
+	virtual void command() = 0;
 };
 
 
