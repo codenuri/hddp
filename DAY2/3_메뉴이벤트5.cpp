@@ -76,6 +76,7 @@ public:
 };
 
 // 방법 4. 함수 포인터를 사용한 callback
+// => 일반 함수 포인터에 멤버 함수를 담을수 없다!!!!
 class MenuItem : public BaseMenu
 {
 	int id;
@@ -101,7 +102,9 @@ int main()
 	MenuItem m1("닫기", 11);
 	MenuItem m2("RED", 21);
 
-	m1.set_handler(&foo); // 이벤트 처리 함수 등록
+//	m1.set_handler(&foo); // 이벤트 처리 함수 등록
+
+	m1.set_handler(&Dialog::close); // ?? 멤버함수 ??
 
 	m1.command(); // foo 호출
 }
