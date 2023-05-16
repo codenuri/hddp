@@ -3,16 +3,29 @@
 #include <vector>
 #include <conio.h> 
 
+class BaseMenu
+{
+	std::string title;
+public:
+	BaseMenu(const std::string& title) : title(title) {}
+	
+	virtual ~BaseMenu() {}
+
+	std::string get_title() { return title; }
+};
+
+
+
 
 class MenuItem
 {
-	std::string title;
+
 	int id;
 public:
 	MenuItem(const std::string& title, int id)
 		: title(title), id(id) {}
 
-	std::string get_title() { return title; }
+
 
 	void command()
 	{
@@ -78,8 +91,8 @@ int main()
 
 	PopupMenu pm("¿À´ÃÀÇ ¸Ş´º");
 
-	pm.add_menu(&??); // ???
-	pm.add_menu(&m2);
+	pm.add_menu(&kimbab); // ÇÙ½É.. ÆË¾÷ÀÌ ´Ù½Ã ÆË¾÷º¸°ü
+	pm.add_menu(&m3);
 
 	pm.command();	
 }
