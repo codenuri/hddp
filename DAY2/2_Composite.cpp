@@ -4,19 +4,29 @@
 
 
 // 아래 main 이 실행되도록 코드를 완성해 보세요
-
 // 단, 공통의 기반 클래스는 "Component"
 
 class Component
 {
+	std::string name;
 public:
-};
+	Component(const std::string& name) : name(name) {}
+	virtual ~Component() {}
 
-class File  
-{
-public:
+	// folder 는 자신의 크기는 없지만 크기를 구할수는 있습니다.
+	// file, folder 모두 get_size() 필요
+	virtual int get_size() = 0;
 };
-class Folder 
+class File  : public Component
+{
+	int size;
+public:
+	File(const std::string& name, int size)
+		: Component(name), size(size) {}
+
+	int get_size() override { return size; }
+};
+class Folder : public Component
 {
 public:
 };
