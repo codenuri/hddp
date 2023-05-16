@@ -16,7 +16,9 @@ public:
 
 	void command()
 	{
-		std::cout << get_title() << " ¸Þ´º ¼±ÅÃµÊ\n";
+		std::cout << get_title() << " ¸Þ´º ¼±ÅÃµÊ" << std::endl;
+
+		getchar();
 		getchar();
 	}
 };
