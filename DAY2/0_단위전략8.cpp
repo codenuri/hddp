@@ -1,6 +1,14 @@
 #include <iostream>
 #include <string>
 
+// cppreference.com 에서 string 검색후. 검색결과에서 basic_string 선택
+// "char_traits<char>" 클릭
+
+// "modern C++ design 책" : 단위전략을 가장 잘 설명하는 책
+// => "안드레이 알렉산드레스큐"
+// => 2002 년 발매, 
+// => C++업계에서 가장 어렵다고 알려진 책.
+
 /*
 template<typename T,  // char, wchar_t, UTF-8 등
 		 typename Traits= std::char_traits<T>, // 비교 정책
