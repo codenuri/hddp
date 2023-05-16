@@ -33,7 +33,22 @@ public:
 	// 핵심 : 팝업메뉴를 선택시 해야할일을 생각해 보세요
 	void command()
 	{
+		int sz = v.size();
 
+		int idx = 0;	
+		for (auto m : v)
+		{
+			std::cout << ++id << ". " << m->get_title() << "\n";
+		}
+
+		std::cout << sz + 1 << ". 종료\n";
+
+		std::cout << "메뉴를 선택하세요 >> ";
+		int cmd;
+		std::cin >> cmd;
+
+		// 선택된 메뉴 실행
+		v[cmd - 1]->command();
 	}
 
 };
@@ -49,7 +64,11 @@ int main()
 	pm.add_menu(&m1);
 	pm.add_menu(&m2);
 
-	pm.command(); // 팝업메뉴를 선택시 해야할일을 생각해보세요
+	pm.command();	// 팝업메뉴를 선택시 해야할일을 생각해보세요
+					// 1. 김밥
+					// 2. 라면
+					// 3. 종료
+					// 메뉴를 선택하세요 >>
 }
 
 
