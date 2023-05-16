@@ -77,7 +77,7 @@ public:
 // 메뉴 이벤트를 처리하고 싶은 클래스는 반드시 아래 인터페이스를 구현해라.!
 struct IMenuListener
 {
-	virtual void on_command() = 0;
+	virtual void on_command(int id) = 0;
 	virtual ~IMenuListener() {}
 };
 
@@ -94,7 +94,7 @@ public:
 	void command()
 	{
 		if (listener)
-			listener->on_command();
+			listener->on_command( id );
 	}
 };
 
@@ -103,9 +103,14 @@ public:
 class Dialog : public IMenuListener
 {
 public:
-	void on_command() override
+	void on_command(int id) override
 	{
-		close();
+		switch (id)
+		{
+		case 11: close(); break;
+		case 12: break;
+		}
+		
 	}
 	void close() { std::cout << "Dialog close" << std::endl; }
 };
