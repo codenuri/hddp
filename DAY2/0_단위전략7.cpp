@@ -35,4 +35,13 @@ int main()
 
 	std::cout << "------------" << std::endl;
 
+	v.clear(); // 이순간 진짜로 메모리가 해지될까요 ?
+				// size 만 0으로 만들고, 메모리는 해지 안됩니다.
+
+	std::cout << "------------" << std::endl;
+	
+	v.shrink_to_fit(); // 이순간 메모리 제거
+
+	std::cout << "------------" << std::endl;
+
 }
