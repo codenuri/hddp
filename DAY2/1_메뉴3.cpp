@@ -33,23 +33,38 @@ public:
 	// 핵심 : 팝업메뉴를 선택시 해야할일을 생각해 보세요
 	void command()
 	{
-		int sz = v.size();
-
-		int idx = 0;	
-		for (auto m : v)
+		while (1)
 		{
-			std::cout << ++id << ". " << m->get_title() << "\n";
+			system("cls");
+
+			int sz = v.size();
+			int idx = 0;	
+
+			for (auto m : v)
+			{
+				std::cout << ++idx << ". " << m->get_title() << "\n";
+			}
+
+			std::cout << sz + 1 << ". 종료\n";
+
+			std::cout << "메뉴를 선택하세요 >> ";
+			int cmd;
+			std::cin >> cmd;
+
+			if (cmd == sz + 1)  // 종료 메뉴 선택 
+				break;
+
+			if (cmd < 1 || cmd > sz + 1) // 잘못된 입력
+				continue ;
+
+
+			// 선택된 메뉴 실행
+			v[cmd - 1]->command();
 		}
 
-		std::cout << sz + 1 << ". 종료\n";
-
-		std::cout << "메뉴를 선택하세요 >> ";
-		int cmd;
-		std::cin >> cmd;
-
-		// 선택된 메뉴 실행
-		v[cmd - 1]->command();
 	}
+
+
 
 };
 
