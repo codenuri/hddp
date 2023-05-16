@@ -9,7 +9,9 @@
 // 정책 클래스가 가져야 하는 조건은 "인터페이스" 가 아닌
 // "문서화"로 약속되어야 한다.
 
-template<typename T, typename ThreadModel = nolock> class List
+template<typename T, 
+	typename ThreadModel = nolock> 
+class List 
 {
 	ThreadModel tm;
 public:
