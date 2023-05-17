@@ -46,8 +46,9 @@ int main()
 
 	EncryptDecorator ed(&fs);
 	ed.write("data");	// 1. 데이타를 암호화한 후에
-						// 2. fw.write()
+						// 2. fs.write()
 
 	ZipDecorator zd(&ed);
-	zd.write("data");
+	zd.write("data");	// 1. 데이타 압축
+						// 2. ed.write()
 }
