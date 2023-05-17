@@ -39,6 +39,16 @@ int main()
 	int n1 = p1->Add(10, 20);
 
 	std::cout << n1 << std::endl; // 30
+
+	//------------------------------------------
+	std::shared_ptr<ICalc> sp1(load_proxy());
+				// => sp1 의 소멸자가 delete 합니다.
+				// => 결국 DLL에서 new 했는데, 실행파일이 delete 한것
+
+	sp<ICalc> p1(load_proxy());
+				// => p1은 소멸자가 Release() 호출
+				// => 결국 delete 는 DLL 내부에서
+
 }
 
 
