@@ -10,7 +10,7 @@ using namespace std::literals;
 
 struct IPicture
 {
-	virtual void show() = 0;
+	virtual void draw() = 0;
 	virtual ~IPicture() {}
 };
 
