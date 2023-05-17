@@ -32,6 +32,13 @@ public:
 	}
 	void play() { impl->play(); }
 	void stop() { impl->stop(); }
+
+	void play_one_minute()
+	{
+		play();
+		// 타이머 시작
+		stop();
+	}
 };
 // People 이 MP3를 사용하면
 // => IMP3 가 변경되어도 People 은 수정 안됨
@@ -44,6 +51,9 @@ public:
 	{
 		p->Play();
 		p->Stop();
+
+		// 새로운 기능 요구
+		p->play_one_minute();
 	}
 };
 
