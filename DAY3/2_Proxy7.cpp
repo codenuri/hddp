@@ -25,6 +25,10 @@ public:
 	
 	~sp() { if (obj) obj->Release(); }
 
+	// 진짜 포인터처럼 사용할수 있어야 한다.
+	// -> 와 * 연산자 재정의
+	T* operator->() { return obj; }
+	T& operator*() { return *obj; }
 };
 
 int main()
@@ -32,6 +36,9 @@ int main()
 	sp<ICalc> p1 = load_proxy();
 	sp<ICalc> p2 = p1;
 
+	int n1 = p1->Add(10, 20);
+
+	std::cout << n1 << std::endl; // 30
 }
 
 
