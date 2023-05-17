@@ -29,4 +29,18 @@ ICalc* create()
 
 
 
+// cd \     => C: 로 이동
+
+// cd 폴더명 으로 폴더로 이동
+
+// dir/w 로 파일 확인
+
+// cl calcproxy.cpp /LD /link user32.lib gdi32.lib kernel32.lib
+
+// /LD : DLL 로 빌드 옵션
+
+
+
+
+
 
