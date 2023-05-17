@@ -94,6 +94,11 @@ int main()
 	//			사용법 변경
 	StreamWriter sw(&fs);
 	sw.write("n = {}, d = {}", n, d);
+
+
+	// C++23 부터 cout 대신 사용하는 함수나옵니다.
+//	std::print("n = {}{}", n);
+//	std::println("n = {}", n);
 }
 
 
