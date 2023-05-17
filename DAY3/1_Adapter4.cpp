@@ -92,7 +92,9 @@ int main()
 	// adapter : 함수이름이 변경(또는 인자가 변경, 사용법 다름)
 	//			기능의 추가 라기 보다는 인터페이스의 변경
 	//			사용법 변경
-	StreamWriter sw(&fs);
+//	StreamWriter sw(&fs);
+	StreamWriter sw(&zd);
+
 	sw.write("n = {}, d = {}", n, d);
 
 
