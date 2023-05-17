@@ -65,3 +65,12 @@ int main()
 	ZipDecorator zd(&ed);
 	zd.write("data");	
 }
+
+// C# 언어
+// 저장소 클래스		StreamDecorator
+// 
+// FileStream		GZipStream
+// NetworkStream	XmlStream
+// PipeStream		HtmlStream
+
+// 구글에서 "C# Stream Decorator" 검색
