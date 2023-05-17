@@ -11,7 +11,7 @@ using namespace std::literals;
 struct IPicture
 {
 	virtual void show() = 0;
-	virtual ~IPiture() {}
+	virtual ~IPicture() {}
 };
 
 class Picture : public IPicture
