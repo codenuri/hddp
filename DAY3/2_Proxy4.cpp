@@ -14,11 +14,10 @@ ICalc* load_proxy()
 
 	using F = ICalc* (*)();
 
-	F f = ec_get_function_address(addr, "create");
+	F f = (F)ec_get_function_address(addr, "create");
 					// 리눅스 : dlsym(), 윈도우 : GetProcAddress()
 	return f();
 }
-
 
 int main()
 {
