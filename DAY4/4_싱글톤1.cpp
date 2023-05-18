@@ -10,6 +10,11 @@
 // => 그래서, 싱글톤에 대한 비판도 많이 있습니다.
 
 
+// 아래 코드가 "Meyer's 싱글톤" 입니다.
+// => effective-C++ 의 저자인 scott meyer 가 처음 제안한 모델
+// => 유일한 객체가 static 지역변수인 모델
+
+
 class Cursor
 {
 	// 규칙 1. private 생성자
