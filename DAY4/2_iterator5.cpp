@@ -54,6 +54,10 @@ public:
 	{
 		return slist_iterator<T>(head);
 	}
+	slist_iterator<T> end()
+	{
+		return slist_iterator<T>(0);
+	}
 };
 
 int main()
@@ -65,10 +69,17 @@ int main()
 	s.push_front(40);
 
 	auto p = s.begin();
-
 	++p; // 
-
 	std::cout << *p << std::endl; // 30
 	
+
+	auto first = s.begin();
+	auto last = s.end();
+
+	while (first != last)
+	{
+		std::cout << *first << ", ";
+		++first;
+	}
 }
 
