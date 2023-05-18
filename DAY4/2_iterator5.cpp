@@ -82,4 +82,18 @@ int main()
 		++first;
 	}
 }
-
+/*
+Point* foo()
+{
+	Point pt;
+	return &pt; // 버그. 이렇게 안되고
+	return new Point; // Point* 로 반환한다면 이렇게 해야만 합니다.
+}
+Point foo()
+{
+	Point pt;
+	return pt; // ok!!
+	return Point(); // 위와 같은 의미.
+}
+Point ret = foo(); // ok
+*/
