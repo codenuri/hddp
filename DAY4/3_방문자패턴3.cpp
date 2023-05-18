@@ -18,9 +18,17 @@ struct IMenuVisitor
 	virtual ~IMenuVisitor() {}
 };
 
+// 모든 메뉴는 방문자를 허락해야 한다.
+struct IAcceptor
+{
+	virtual void accept(IMenuVisitor* visitor) = 0;
+	virtual ~IAcceptor() {}
+};
 
 
-class BaseMenu
+
+
+class BaseMenu : public IAcceptor
 {
 	std::string title;
 public:
@@ -47,6 +55,13 @@ class MenuItem : public BaseMenu
 public:
 	MenuItem(const std::string& title, int id) : BaseMenu(title), id(id) {}
 
+	void accept(IMenuVisitor* visitor) override
+	{
+		// 메뉴 아이템은 복합객체가 아니므로 자신만 방문자에 전달
+		visitor->visit(this);
+	}
+
+
 	void command() override
 	{
 		std::cout << get_title() << " 메뉴가 선택됨" << std::endl;
@@ -59,6 +74,29 @@ class PopupMenu : public BaseMenu
 	std::vector<BaseMenu*> v;
 public:
 	PopupMenu(const std::string& title) : BaseMenu(title) {}
+
+
+	// 방문자가 팝업메뉴를 방문할때
+	void accept(IMenuVisitor* visitor)
+	{
+		// 방문자에 자신을 전달
+		visitor->visit(this);
+
+		// 하위 메뉴도 전달
+		// => 아래 처럼하면 직계 자식 메뉴 까지만 전달됩니다.
+		//for (auto e : v)
+		//	visitor->visit(e);
+
+		// 해결 : 하위 메뉴에 다시 방문자를 방문
+		for (auto e : v)
+			e->accept(visitor);
+	}
+
+
+
+
+
+
 
 	void add_menu(BaseMenu* p) { v.push_back(p); }
 
@@ -94,7 +132,17 @@ public:
 
 };
 
+class PopupMenuTitleChangeVisitor : public IMenuVisitor
+{
+public:
+	void visit(MenuItem* m) override {}
+	void visit(PopupMenu* m) override 
+	{
+		auto s = "[ " + m->get_title() + " ]";
 
+		m->set_title(s);
+	}
+};
 
 
 
@@ -122,6 +170,16 @@ int main()
 	root->accept(&pmv); // root 의 모든 메뉴를 방문해서
 						// 팝업일때만 타이틀을 변경하는 
 						// 방문자
+
+	// 참고 1. 방문자를 반드시 root 에 넣어야만 하는 것은 아닙니다.
+	//        한개 객체에만 넣어도 됩니다.
+
+	MenuItem* m = new MenuItem("8K", 14);
+	
+	pm1->accept(m);
+
+	m->accept(&pmv); // 이렇게 해도 됩니다.
+
 
 	root->command();
 
