@@ -34,7 +34,7 @@ public:
 
 // STL list 에 accept 추가
 template<typename T> 
-class MyList : public std::list<T>, public IAcceptor
+class MyList : public std::list<T>, public IAcceptor<T>
 {
 public:
 	using std::list<T>::list; // 생성자 상속
