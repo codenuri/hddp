@@ -39,7 +39,7 @@ public:
 
 	T& next() override
 	{
-		T& ret = *current;
+		T& ret = current->data;
 		current = current->next;
 		return ret;
 	}
