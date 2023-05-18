@@ -44,9 +44,10 @@ std::map<std::string, Image*> Image::image_map;
 
 int main()
 {
+	// IOS 개발에 사용되는 Cocoa touch 가 아래 처럼 사용합니다.
 	Image* img1 = Image::Create("www.naver.com/a.png");
 	img1->Draw();
-
+	
 	Image* img2 = Image::Create("www.naver.com/a.png");
 	img2->Draw();
 
