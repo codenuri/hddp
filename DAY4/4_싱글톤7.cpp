@@ -32,14 +32,16 @@ public:
 
 	static Cursor& get_instance()
 	{
-		lock_guard<std::mutex> g(mtx);
-//		mtx.lock();
+		{
+			std::lock_guard<std::mutex> g(mtx);
+			//lock_guard<std::mutex> g(mtx); // g의 생성자에서 mtx.lock()
+			//		mtx.lock();
 
-		if (instance == nullptr)
-			instance = new Cursor;
+			if (instance == nullptr)
+				instance = new Cursor;
 
-//		mtx.unlock();
-
+			//		mtx.unlock();
+		}
 		return *instance;
 	}
 
