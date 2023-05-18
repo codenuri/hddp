@@ -44,7 +44,7 @@ public:
 // p1 == p2; // 비교도 가능
 
 
-template<typename T> struct slist : public ICollection<T>
+template<typename T> struct slist 
 {
 	Node<T>* head = 0;
 public:
@@ -64,7 +64,7 @@ int main()
 	s.push_front(30);
 	s.push_front(40);
 
-	auto p = s.iterator();
+	auto p = s.begin();
 
 	++p; // 
 
