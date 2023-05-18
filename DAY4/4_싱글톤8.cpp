@@ -49,9 +49,11 @@ int main()
 	Mouse& c1 = Mouse::get_instance();
 }
 
+// github.com/aosp-mirror    "android open source project"
 
+// platform system core  repository
 
-
+// libutils/include/utils/Singleton.h 열어 보세요
 
 
 
