@@ -77,11 +77,13 @@ int main()
 	auto last = s.end();
 
 	while (first != last)
+//	while( first != std::default_sentinel) // C++20
 	{
 		std::cout << *first << ", ";
 		++first;
 	}
 }
+// visual studio 2022 preivew 17.7 부터 많이 지원 - std::print()
 /*
 Point* foo()
 {
