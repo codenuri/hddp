@@ -80,5 +80,14 @@ int main()
 	t2.next = &t3;
 	t3.next = nullptr;
 
-	t1.Handle(7); // 7번 문제 발생
+//	t1.Handle(7); // 7번 문제 발생.. TEAM1 이 해결
+
+//	t1.Handle(9); // TEAM1 => TEAM2에 전달해서 해결
+
+//	t1.Handle(8); // TEAM1 => TEAM2 => TEAM3 전달해서해결
+
+	t1.Handle(12);
+
+	// 요청하는 객체와 처리하는 객체의 결합도를 줄여서
+	// 요청을 처리할 기회를 여러 객체에 부여
 }
