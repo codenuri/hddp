@@ -54,7 +54,7 @@ public:
 	static AutoRegister ar;
 
 #define REGISTER_IMPL(key, classname)	\
-	AutoRegister Rect::ar(key, &classname::Create);
+	AutoRegister classname::ar(key, &classname::Create);
 
 class Rect : public Shape
 {
