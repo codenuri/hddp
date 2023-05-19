@@ -21,7 +21,9 @@ public:
 };
 
 // 도형을 만드는 팩토리
-
+// => 이제 모든 도형은 반드시 공장을 통해서 만들어야 합니다.
+// => 새로운 도형이 추가되면 공장만 변경하면 됩니다.
+// => 코드 변화를 최소화 할수 있습니다.
 class ShapeFactory
 {
 	MAKE_SINGLETON(ShapeFactory)
