@@ -36,9 +36,20 @@ int main()
 					// mov ecx, &p1		// this
 					// call Point::set
 }
+/*
+class AAA
+{
+public:
+	void f1(int a, int b) {}
 
+	// explicit object parameter - C++23, 
+	// deducing this 문법
+	// 파이썬 처럼 멤버함수 1번째 인자로 self 로 받는 기술.
+	void f2(this AAA& self, int a, int b) {}
+};
 
-
-
-
+AAA aaa;
+aaa.f1(1, 2);
+aaa.f2(1, 2);
+*/
 
