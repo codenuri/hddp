@@ -45,10 +45,12 @@ public:
 	// explicit object parameter - C++23, 
 	// deducing this 문법
 	// 파이썬 처럼 멤버함수 1번째 인자로 self 로 받는 기술.
-	void f2(this AAA& self, int a, int b) {}
+	void f2(this T& self, int a, int b) {}
 };
-
-AAA aaa;
+class BB : AAA
+{
+}
+BBB aaa;
 aaa.f1(1, 2);
 aaa.f2(1, 2);
 */
