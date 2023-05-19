@@ -46,7 +46,6 @@ public:
 		}
 		return 0;
 	}
-
 };
 //----------------------------------
 class MainWindow : public MsgWindow<MainWindow>
