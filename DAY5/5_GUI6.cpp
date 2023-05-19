@@ -78,9 +78,14 @@ public:
 	bool LButtonDown()
 	{
 		std::cout << "ImageView LBUTTON\n";
-		return true;
+	//	return true;	// 메세지 처리를 종료
+		return false;   // 메세지를 부모 윈도우에 보내 달라.
 	}
 };
+// 위 기술을 IOS 에서는 "responder chain" 이라고 하고
+// C# WPF 에서는 "bubbling event" 라고 합니다.
+// C++ MFC 에서는 "command routing" 이라고 합니다.
+
 int main()
 {
 	MainWindow w;
