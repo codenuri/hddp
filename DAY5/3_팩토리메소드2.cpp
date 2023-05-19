@@ -55,30 +55,20 @@ public:
 	virtual IEdit* CreateEdit() = 0;
 };
 
-
-
-
 // Style 옵션과 상관없이 항상 Windows 모양의 Dialog
 
-class WinDialog
+class WinDialog : public Dialog
 {
 public:
-
+	IButton* CreateButton() { return new WinButton; }
+	IEdit* CreateEdit() { return new WinEdit; }
 };
 
-class OSXDialog
+class OSXDialog : public Dialog
 {
 public:
-	void init()
-	{
-		OSXButton* btn = new OSXButton;
-		OSXEdit* edit = new OSXEdit;
-
-		// btn->Move(); edit->Move();
-
-		btn->Draw();
-		edit->Draw();
-	}
+	IButton* CreateButton() { return new OSXButton; }
+	IEdit* CreateEdit() { return new OSXEdit; }
 };
 
 
