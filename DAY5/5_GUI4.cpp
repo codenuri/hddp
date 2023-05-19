@@ -37,12 +37,19 @@ public:
 	virtual void LButtonDown() {}
 	virtual void KeyDown() {}
 };
-
-
+//----------------------------------
+class MainWindow : public Window
+{
+public:
+	void LButtonDown()
+	{
+		std::cout << "MainWindow LBUTTON\n";
+	}
+};
 
 int main()
 {
-	Window w;
+	MainWindow w;
 	w.Create("A");
 
 	ec_process_message();
