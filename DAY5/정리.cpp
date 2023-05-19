@@ -37,14 +37,15 @@
 // => 공유 : flyweight
 
 // 동작(행위)에 대한 패턴 11가지
-// => 변하는 것 분리  : state, strategy, template
+// => 변하는 것 분리  : state, strategy, template method
 // => 명령 의 객체화  : command
 // => 열거, 통보, 방문, 전가 : iterator, visitor, observer, 
 //							chain of responsibility
 
 // => 객체 저장 : memento
-// => 기타 : mediator, interpret
+// => 기타 : mediator, interpreter
 
 
-
+// interpreter : 컴파일러등의 문맥 분석기 만들때 사용
+//				=> 지금은 사용안됨.
 
