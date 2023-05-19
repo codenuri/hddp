@@ -4,14 +4,10 @@
 #include <map>
 #include <vector>
 
-class Window;
-
-std::map<int, Window*> this_map;
-
-
-
 class Window
 {
+	static std::map<int, Window*> this_map;
+
 	int handle;
 
 	Window* parent = nullptr; 
@@ -61,6 +57,10 @@ public:
 	virtual bool LButtonDown() { return false; }
 	virtual bool KeyDown() { return false; }
 };
+
+std::map<int, Window*> Window::this_map;
+
+
 //----------------------------------
 class MainWindow : public Window
 {
