@@ -48,7 +48,7 @@ public:
 	}
 };
 
-AutoRegister ar(1, &Rect::Create);
+//AutoRegister ar(1, &Rect::Create);
 
 
 
@@ -59,11 +59,17 @@ public:
 	void draw() override { std::cout << "draw Rect" << std::endl; }
 
 	static Shape* Create() { return new Rect; }
+
+	// static 멤버 데이타의 생성자는 main 함수 보다 먼저 호출됩니다.
+	static AutoRegister ar;
 };
+AutoRegister Rect::ar(1, &Rect::Create);
 
-
-
-
+// new Rect;  => Rect 생성자 호출
+//				즉, 생성자는 객체를 만들때 마다 호출
+// 위의 ar의 생성자는 "Rect" 를 만들지 않아도 최초에 한번 호출
+// 즉, 객체가 아닌 클래스에 대해서 최초에 한번 호출
+// => C# 언어의 static 생성자 개념
 
 class Circle : public Shape
 {
@@ -71,20 +77,18 @@ public:
 	void draw() override { std::cout << "draw Circle" << std::endl; }
 
 	static Shape* Create() { return new Circle; }
+	static AutoRegister ar;
 };
-
-
-
+AutoRegister Circle::ar(2, &Circle::Create);
 
 int main()
 {
 	std::vector<Shape*> v;
 
 	ShapeFactory& factory = ShapeFactory::getInstance();
-
 	
-	factory.Register(1, &Rect::Create);
-	factory.Register(2, &Circle::Create);
+//	factory.Register(1, &Rect::Create);
+//	factory.Register(2, &Circle::Create);
 
 
 	while (1)
