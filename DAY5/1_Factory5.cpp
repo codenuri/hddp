@@ -81,7 +81,8 @@ int main()
 	factory.Register(2, blueRect);
 	factory.Register(3, redCircle);
 
-
+	// 등록된 견본제품을 보여주는 함수
+	factory.showRegiterSample();
 
 
 	while (1)
