@@ -49,7 +49,7 @@ public:
 };
 //----------------------------------
 class MainWindow : public MsgWindow<MainWindow>
-{
+{s
 public:
 	void LButtonDown()
 	{
