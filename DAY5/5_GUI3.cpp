@@ -17,8 +17,8 @@ public:
 	{
 		switch (msg)
 		{
-		case WM_LBUTTONDOWN: LButtonDown(); break;
-		case WM_KEYDOWN:     KeyDown(); break;
+		case WM_LBUTTONDOWN: LButtonDown(); break;// this->LButtonDown()
+		case WM_KEYDOWN:     KeyDown(); break;     // 로 변해야 하는데 this가 없다
 		}
 		return 0;
 	}
